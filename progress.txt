@@ -10,7 +10,19 @@
 - Added mobile-responsive viewport meta tag with user-scalable=no
 - Linked to styles/main.css, src/calculator.js, and src/main.js
 
+### Task: Fix Calculator Logic & Create Tests
+- Fixed floating-point precision issues (0.1 + 0.2 = 0.3)
+- Fixed percentage calculation (50 + 25% = 62.5, Apple-style)
+- Created comprehensive Playwright test suite:
+  - UI rendering tests (page load, display, buttons, grid layout)
+  - Calculator operations tests (add, subtract, multiply, divide, decimals, percentage, negate, clear, large numbers, division by zero)
+  - Keyboard input tests (0-9, operators, Enter, Escape, Backspace, %)
+  - Responsive design tests (mobile, tablet, desktop)
+- Configured Playwright for chromium and mobile testing only
+- All 56 tests passing across chromium and mobile Chrome
+
 ## Current State
-- index.html created with full calculator HTML structure
-- All feedback loops passed (typecheck, test, lint)
-- Calculator UI ready for use
+- All tasks from prd.md completed
+- All 56 Playwright tests passing
+- TypeScript typecheck passing
+- Code committed and ready
