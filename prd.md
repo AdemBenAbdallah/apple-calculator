@@ -6,7 +6,59 @@ Create a web-based calculator with the same design and functionality as the Appl
 
 ## Tasks
 
-### Task 1: Create HTML Structure
+### Task 1: Setup Playwright Testing Infrastructure
+
+Set up Playwright for automated testing of the calculator.
+
+**Requirements:**
+
+- Initialize npm project with `package.json`
+- Install Playwright and configure test environment
+- Create `playwright.config.js` with proper settings
+- Install chromium browser for testing
+- Create test directory structure
+
+**Step-by-Step:**
+
+- [ ] Run `npm init -y` to create `package.json`
+- [ ] Run `npm install --save-dev @playwright/test` to install Playwright
+- [ ] Run `npx playwright install chromium` to install browser
+- [ ] Create `playwright.config.js` with:
+  - Test directory: `tests/`
+  - Reporter: `html` for local, `list` for CI
+  - Base URL pointing to the calculator page
+  - Timeout: 30000ms
+  - Mobile and desktop viewport presets
+- [ ] Create `tests/` directory
+- [ ] Create initial test file `tests/calculator.spec.js` with smoke test
+
+**Acceptance Criteria:**
+
+- [ ] `package.json` created with Playwright as dev dependency
+- [ ] `playwright.config.js` exists and is configured
+- [ ] Chromium browser installed
+- [ ] `tests/` directory created
+- [ ] Initial smoke test passes (page loads without errors)
+
+**Test Verification:**
+
+After completing this task, run the tests to verify Playwright is working:
+
+```bash
+npm test
+```
+
+Expected result: All tests pass with no console errors.
+
+**Acceptance Criteria:**
+
+- [ ] All setup steps completed
+- [ ] Playwright smoke test passes
+- [ ] `npm test` runs successfully
+
+---
+
+### Task 2: Create HTML Structure
 
 Create `index.html` with:
 
@@ -29,7 +81,26 @@ Create `index.html` with:
 - [ ] Mobile-responsive viewport meta tag
 - [ ] Linked to styles/main.css and src/main.js
 
-### Task 2: Create CSS Styling
+**Test Verification:**
+
+After completing this task, run the tests to verify HTML structure:
+
+```bash
+npm test
+```
+
+Tests verify:
+
+- Page loads successfully
+- Display area is visible
+- All buttons render correctly
+- No console errors
+
+Expected result: All UI rendering tests pass.
+
+---
+
+### Task 3: Create CSS Styling
 
 Create `styles/main.css` with Apple Calculator aesthetics:
 
@@ -72,7 +143,27 @@ Create `styles/main.css` with Apple Calculator aesthetics:
 - [ ] Responsive design works on mobile
 - [ ] Smooth animations and transitions on button presses
 
-### Task 3: Create JavaScript UI Logic
+**Test Verification:**
+
+After completing this task, run the tests to verify CSS styling:
+
+```bash
+npm test
+```
+
+Tests verify:
+
+- Button grid layout with 4 columns
+- Button colors match Apple design
+- Zero button spans 2 columns
+- Responsive design on different viewports
+- No console errors
+
+Expected result: All styling tests pass.
+
+---
+
+### Task 4: Create JavaScript UI Logic
 
 Create `src/main.js` for UI interaction:
 
@@ -113,38 +204,106 @@ Create `src/main.js` for UI interaction:
 - [ ] Error handling for division by zero
 - [ ] Keyboard shortcuts work
 
-### Task 4: Test the Implementation
+**Test Verification:**
 
-Manual testing of all features:
+After completing this task, run the full test suite to verify all functionality:
 
-**Test Cases:**
+```bash
+npm test
+```
 
-- Basic operations: 2+3=5, 5-2=3, 3×4=12, 10÷2=5
-- Chain operations: 2+3+=
-- Decimal operations: 0.1+0.2=0.3
-- Percentage: 50+25%=62.5
-- Negation: 5+/−=−5
-- Clear: AC clears all state
-- Large numbers: 999999999+1
-- Division by zero: 5÷0 shows error
-- Rapid button presses
-- Keyboard input
+Tests verify:
+
+- All calculator operations (add, subtract, multiply, divide)
+- Decimal operations (0.1 + 0.2 = 0.3)
+- Percentage calculations (50 + 25% = 62.5)
+- Negation (5 +/− = −5)
+- Clear functionality (AC)
+- Large numbers (999999999 + 1)
+- Division by zero error handling
+- Keyboard input (0-9, +, -, \*, /, Enter, Escape, Backspace)
+- Responsive design on mobile, tablet, desktop
+
+Expected result: All functional tests pass (100% pass rate).
+
+---
+
+### Task 5: Run Automated Tests
+
+Run the full Playwright test suite to verify all calculator functionality.
+
+**Requirements:**
+
+- Execute all UI rendering tests
+- Execute all functional calculator tests
+- Execute all keyboard input tests
+- Execute all responsive design tests
+- Verify no console errors
+- Generate test report
+
+**Test Suite Coverage:**
+
+- UI rendering tests (buttons, display, layout)
+- Functional tests (add, subtract, multiply, divide)
+- Edge case tests (division by zero, decimals, large numbers)
+- Keyboard input tests
+- Mobile responsive tests
+
+**Test Verification:**
+
+After completing this task, run the full test suite:
+
+```bash
+npm test
+```
+
+Tests verify:
+
+- All calculator operations (add, subtract, multiply, divide)
+- Decimal operations (0.1 + 0.2 = 0.3)
+- Percentage calculations (50 + 25% = 62.5)
+- Negation (5 +/− = −5)
+- Clear functionality (AC)
+- Large numbers (999999999 + 1)
+- Division by zero error handling
+- Keyboard input (0-9, +, -, \*, /, Enter, Escape, Backspace)
+- Responsive design on mobile, tablet, desktop
+- No console errors in browser
 
 **Acceptance Criteria:**
 
-- [ ] All calculator functions work correctly
-- [ ] UI responsive and buttons accurate
+- [ ] All UI rendering tests pass
+- [ ] All functional calculator tests pass
+- [ ] All keyboard input tests pass
+- [ ] All responsive design tests pass
 - [ ] No console errors in browser
-- [ ] Works on mobile devices (touch events)
-- [ ] All test cases pass
+- [ ] HTML test report generated
+- [ ] All tests pass with 100% success rate
 
-### Task 5: Final Verification
+---
+
+### Task 6: Final Verification
+
+Final verification of all calculator functionality.
+
+**Requirements:**
 
 - Verify all files in correct locations
 - Test in browser (Chrome, Safari, Firefox)
+- Run full Playwright test suite
 - Check console for errors
 - Verify responsive design on mobile
 - Ensure Calculator class methods are used correctly
+
+**Test Verification:**
+
+After completing this task, run the final test suite:
+
+```bash
+npm test
+```
+
+Expected result: All tests pass with 100% success rate. HTML report generated at `playwright-report/index.html`.
 
 **Acceptance Criteria:**
 
@@ -153,6 +312,9 @@ Manual testing of all features:
 - [ ] Display shows correct values
 - [ ] Buttons respond to clicks and keyboard
 - [ ] Design matches Apple Calculator style
+- [ ] All Playwright tests pass
+- [ ] No console errors
+- [ ] HTML test report available
 
 ## Stop Condition
 
