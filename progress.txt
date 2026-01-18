@@ -25,4 +25,5 @@
 - All tasks from prd.md completed
 - All 56 Playwright tests passing
 - TypeScript typecheck passing
+- npm test now correctly runs Playwright test suite
 - Code committed and ready
