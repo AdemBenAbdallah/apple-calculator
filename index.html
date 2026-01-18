@@ -2,54 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apple Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Calculator</title>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <main class="calculator">
+    <div class="calculator">
         <div class="calculator-display">
             <div class="calculation" id="calculation"></div>
             <div class="result" id="result">0</div>
         </div>
-        
         <div class="calculator-buttons">
             <div class="button-row">
                 <button class="button function" data-action="clear">AC</button>
-                <button class="button function" data-action="negate">+/-</button>
+                <button class="button function" data-action="negate">+/−</button>
                 <button class="button function" data-action="percent">%</button>
                 <button class="button operator" data-operator="divide">÷</button>
             </div>
-            
             <div class="button-row">
                 <button class="button number" data-number="7">7</button>
                 <button class="button number" data-number="8">8</button>
                 <button class="button number" data-number="9">9</button>
                 <button class="button operator" data-operator="multiply">×</button>
             </div>
-            
             <div class="button-row">
                 <button class="button number" data-number="4">4</button>
                 <button class="button number" data-number="5">5</button>
                 <button class="button number" data-number="6">6</button>
                 <button class="button operator" data-operator="subtract">−</button>
             </div>
-            
             <div class="button-row">
                 <button class="button number" data-number="1">1</button>
                 <button class="button number" data-number="2">2</button>
                 <button class="button number" data-number="3">3</button>
                 <button class="button operator" data-operator="add">+</button>
             </div>
-            
             <div class="button-row">
                 <button class="button number zero" data-number="0">0</button>
                 <button class="button number" data-number="decimal">.</button>
                 <button class="button operator" data-operator="equals">=</button>
             </div>
         </div>
-    </main>
-    
+    </div>
+    <script src="src/calculator.js"></script>
     <script src="src/main.js"></script>
 </body>
 </html>
