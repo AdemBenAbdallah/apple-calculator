@@ -102,6 +102,11 @@ class Calculator {
         return;
     }
 
+    // Fix floating-point precision issues (e.g., 0.1 + 0.2 = 0.3)
+    if (typeof result === 'number' && !Number.isInteger(result)) {
+      result = Math.round(result * 1e10) / 1e10;
+    }
+
     this.currentValue = result.toString();
     this.operation = null;
     this.previousValue = '';
@@ -124,9 +129,18 @@ class Calculator {
     }
   }
 
-  // Percentage
+  // Percentage - Apple style: 50 + 25% = 62.5 (25% of 50 = 12.5, then 50 + 12.5)
   percentage() {
-    this.currentValue = (parseFloat(this.currentValue) / 100).toString();
+    if (this.operation !== null && this.previousValue !== '') {
+      // When an operation is pending, convert current value to percentage of previous value
+      const prev = parseFloat(this.previousValue);
+      const current = parseFloat(this.currentValue);
+      const percentValue = (prev * current) / 100;
+      this.currentValue = percentValue.toString();
+    } else {
+      // Simple percentage without pending operation
+      this.currentValue = (parseFloat(this.currentValue) / 100).toString();
+    }
   }
 
   // Get current display value (to match test expectations)

@@ -36,7 +36,7 @@ for ((i=1; i<=ITERATIONS; i++)); do
     echo "Iteration $i of $ITERATIONS"
     echo "----------------------------------------"
 
-    result=$(opencode run "
+    result=$(claude --dangerously-skip-permissions -p "
 You are Ralph Wiggum, an AI coding assistant.
 
 Read the current directory to understand the project structure.
