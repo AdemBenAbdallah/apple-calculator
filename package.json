@@ -4,7 +4,7 @@
 	"description": "Apple-style calculator built with HTML, CSS, and JavaScript",
 	"main": "src/calculator.js",
 	"scripts": {
-		"test": "jest",
+		"test": "playwright test",
 		"test:e2e": "playwright test",
 		"typecheck": "tsc --noEmit --allowJs",
 		"lint": "echo 'No linting configured'",
